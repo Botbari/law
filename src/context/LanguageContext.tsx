@@ -426,35 +426,65 @@ const translations: Record<string, Record<Language, string>> = {
   },
 
   // Education Page
-  "education.title": { bn: "আইনি শিক্ষা কেন্দ্র", en: "Legal Education Center" },
+  "education.title": {
+    bn: "আইনি শিক্ষা কেন্দ্র",
+    en: "Legal Education Center",
+  },
   "education.heroDescription": {
     bn: "বিনামূল্যে আইনি শিক্ষা নিন। বিশেষজ্ঞদের তৈরি ভিডিও টিউটোরিয়াল দেখুন এবং আইনি জ্ঞান বৃদ্ধি করুন। AI চ্যাটবট আপনাকে সঠিক ভিডিও খুঁজে দিতে সাহায্য করবে।",
     en: "Get free legal education. Watch video tutorials created by experts and increase your legal knowledge. AI chatbot will help you find the right videos.",
   },
-  "education.aiVideoSuggestion": { bn: "🤖 AI ভিডিও সাজেশন নিন", en: "🤖 Get AI Video Suggestions" },
-  "education.seeAllVideos": { bn: "📚 সব ভিডিও দেখুন", en: "📚 See All Videos" },
-  "education.aiChatbotTitle": { bn: "AI ভিডিও সাজেশন চ্যাটবট", en: "AI Video Suggestion Chatbot" },
+  "education.aiVideoSuggestion": {
+    bn: "🤖 AI ভিডিও সাজেশন নিন",
+    en: "🤖 Get AI Video Suggestions",
+  },
+  "education.seeAllVideos": {
+    bn: "📚 সব ভিডিও দেখুন",
+    en: "📚 See All Videos",
+  },
+  "education.aiChatbotTitle": {
+    bn: "AI ভিডিও সাজেশন চ্যাটবট",
+    en: "AI Video Suggestion Chatbot",
+  },
   "education.aiChatbotDescription": {
     bn: "আপনার প্রয়োজন অনুযায়ী সঠিক আইনি শিক্ষামূলক ভিডিও খুঁজে পেতে আমাদের AI চ্যাটবটের সাহায্য নিন। শুধু আপনার প্রশ্ন বা বিষয় লিখুন, চ্যাটবট আপনাকে উপযুক্ত ভিডিও সাজেস্ট করবে।",
     en: "Get help from our AI chatbot to find the right legal educational videos according to your needs. Just type your question or topic, the chatbot will suggest appropriate videos.",
   },
-  "education.smartVideoSearch": { bn: "স্মার্ট ভিডিও সার্চ", en: "Smart Video Search" },
-  "education.topicSuggestion": { bn: "বিষয়ভিত্তিক সাজেশন", en: "Topic-based Suggestions" },
+  "education.smartVideoSearch": {
+    bn: "স্মার্ট ভিডিও সার্চ",
+    en: "Smart Video Search",
+  },
+  "education.topicSuggestion": {
+    bn: "বিষয়ভিত্তিক সাজেশন",
+    en: "Topic-based Suggestions",
+  },
   "education.instantHelp": { bn: "তাৎক্ষণিক সহায়তা", en: "Instant Help" },
   "education.startChatbot": { bn: "চ্যাটবট শুরু করুন", en: "Start Chatbot" },
-  "education.videoCollection": { bn: "ভিডিও টিউটোরিয়াল সংগ্রহ", en: "Video Tutorial Collection" },
+  "education.videoCollection": {
+    bn: "ভিডিও টিউটোরিয়াল সংগ্রহ",
+    en: "Video Tutorial Collection",
+  },
   "education.videoCollectionDesc": {
     bn: "বিশেষজ্ঞ আইনজীবী এবং শিক্ষকদের তৈরি উচ্চমানের আইনি শিক্ষামূলক ভিডিও",
     en: "High-quality legal educational videos created by expert lawyers and teachers",
   },
   "education.searchVideos": { bn: "ভিডিও খুঁজুন...", en: "Search videos..." },
-  "education.noVideosFound": { bn: "কোনো ভিডিও পাওয়া যায়নি", en: "No videos found" },
+  "education.noVideosFound": {
+    bn: "কোনো ভিডিও পাওয়া যায়নি",
+    en: "No videos found",
+  },
   "education.noVideosFoundDesc": {
     bn: "আপনার সার্চ টার্ম বা ক্যাটেগরি পরিবর্তন করে আবার চেষ্টা করুন",
     en: "Try again by changing your search term or category",
   },
-  "education.getAiHelp": { bn: "AI চ্যাটবটের সাহায্য নিন", en: "Get AI Chatbot Help" },
-  "education.wantToKnowMore": { bn: "আরও জানতে চান?", en: "Want to know more?" },
+  "education.getAiHelp": {
+    bn: "AI চ্যাটবটের সাহায্য নিন",
+    en: "Get AI Chatbot Help",
+  },
+  "education.wantToKnowMore": {
+    bn: "আরও জানতে চান?",
+    en: "Want to know more?",
+  },
   "education.ctaDescription": {
     bn: "আমাদের AI চ্যাটবট আপনাকে সঠিক ভিডিও খুঁজে দিতে এবং আইনি প্রশ্নের উত্তর দিতে সাহায্য করবে",
     en: "Our AI chatbot will help you find the right videos and answer your legal questions",
@@ -477,32 +507,50 @@ const translations: Record<string, Record<Language, string>> = {
   "level.advanced": { bn: "উন্নত", en: "Advanced" },
 
   // Video Titles & Descriptions
-  "video1.title": { bn: "বাংলাদেশের সংবিধান - মৌলিক অধিকার", en: "Bangladesh Constitution - Fundamental Rights" },
+  "video1.title": {
+    bn: "বাংলাদেশের সংবিধান - মৌলিক অধিকার",
+    en: "Bangladesh Constitution - Fundamental Rights",
+  },
   "video1.description": {
     bn: "বাংলাদেশের সংবিধানে বর্ণিত নাগরিকদের মৌলিক অধিকার সম্পর্কে বিস্তারিত আলোচনা",
     en: "Detailed discussion about the fundamental rights of citizens described in the Constitution of Bangladesh",
   },
-  "video2.title": { bn: "পারিবারিক আইন - বিবাহ ও বিবাহবিচ্ছেদ", en: "Family Law - Marriage and Divorce" },
+  "video2.title": {
+    bn: "পারিবারিক আইন - বিবাহ ও বিবাহবিচ্ছেদ",
+    en: "Family Law - Marriage and Divorce",
+  },
   "video2.description": {
     bn: "ইসলামী পারিবারিক আইন অনুযায়ী বিবাহ এবং বিবাহবিচ্ছেদের নিয়মকানুন",
     en: "Marriage and divorce rules according to Islamic family law",
   },
-  "video3.title": { bn: "সম্পত্তি আইন - জমি ক্রয়-বিক্রয়ের নিয়ম", en: "Property Law - Land Purchase Rules" },
+  "video3.title": {
+    bn: "সম্পত্তি আইন - জমি ক্রয়-বিক্রয়ের নিয়ম",
+    en: "Property Law - Land Purchase Rules",
+  },
   "video3.description": {
     bn: "জমি কেনাবেচার সময় কী কী বিষয় খেয়াল রাখতে হবে এবং প্রয়োজনীয় কাগজপত্র",
     en: "Things to keep in mind when buying and selling land and required documents",
   },
-  "video4.title": { bn: "ফৌজদারি আইন - মামলা দায়ের প্রক্রিয়া", en: "Criminal Law - Case Filing Process" },
+  "video4.title": {
+    bn: "ফৌজদারি আইন - মামলা দায়ের প্রক্রিয়া",
+    en: "Criminal Law - Case Filing Process",
+  },
   "video4.description": {
     bn: "থানায় মামলা দায়ের থেকে শুরু করে কোর্টে হাজিরা পর্যন্ত সম্পূর্ণ প্রক্রিয়া",
     en: "Complete process from filing a case at the police station to appearing in court",
   },
-  "video5.title": { bn: "ব্যবসায়িক আইন - কোম্পানি নিবন্ধন", en: "Business Law - Company Registration" },
+  "video5.title": {
+    bn: "ব্যবসায়িক আইন - কোম্পানি নিবন্ধন",
+    en: "Business Law - Company Registration",
+  },
   "video5.description": {
     bn: "বাংলাদেশে নতুন কোম্পানি গঠনের জন্য প্রয়োজনীয় পদক্ষেপ এবং আইনি প্রক্রিয়া",
     en: "Steps and legal process required to form a new company in Bangladesh",
   },
-  "video6.title": { bn: "সাইবার আইন - অনলাইন নিরাপত্তা", en: "Cyber Law - Online Security" },
+  "video6.title": {
+    bn: "সাইবার আইন - অনলাইন নিরাপত্তা",
+    en: "Cyber Law - Online Security",
+  },
   "video6.description": {
     bn: "সাইবার ক্রাইম থেকে নিজেকে রক্ষা করার উপায় এবং আইনি প্রতিকার",
     en: "Ways to protect yourself from cybercrime and legal remedies",
@@ -510,11 +558,23 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Instructor Names
   "instructor.ahmed": { bn: "ড. আহমেদ করিম", en: "Dr. Ahmed Karim" },
-  "instructor.fatema": { bn: "ব্যারিস্টার ফাতেমা খাতুন", en: "Barrister Fatema Khatun" },
-  "instructor.rahim": { bn: "অ্যাডভোকেট রহিম উদ্দিন", en: "Advocate Rahim Uddin" },
-  "instructor.nasir": { bn: "ব্যারিস্টার নাসির হোসেন", en: "Barrister Nasir Hossain" },
+  "instructor.fatema": {
+    bn: "ব্যারিস্টার ফাতেমা খাতুন",
+    en: "Barrister Fatema Khatun",
+  },
+  "instructor.rahim": {
+    bn: "অ্যাডভোকেট রহিম উদ্দিন",
+    en: "Advocate Rahim Uddin",
+  },
+  "instructor.nasir": {
+    bn: "ব্যারিস্টার নাসির হোসেন",
+    en: "Barrister Nasir Hossain",
+  },
   "instructor.salma": { bn: "ড. সালমা আক্তার", en: "Dr. Salma Akter" },
-  "instructor.tania": { bn: "অ্যাডভোকেট তানিয়া রহমান", en: "Advocate Tania Rahman" },
+  "instructor.tania": {
+    bn: "অ্যাডভোকেট তানিয়া রহমান",
+    en: "Advocate Tania Rahman",
+  },
 
   // Video Stats (formatted numbers)
   "views.25432": { bn: "২৫,৪৩২", en: "25,432" },
@@ -535,6 +595,204 @@ const translations: Record<string, Record<Language, string>> = {
   "duration.2820": { bn: "২৮:২০", en: "28:20" },
   "duration.2510": { bn: "২৫:১০", en: "25:10" },
   "duration.2035": { bn: "২০:৩৫", en: "20:35" },
+
+  // Somjhota (Mediation) Page
+  "somjhota.title": {
+    bn: "দ্বিপাক্ষিক আইনি সমাধান",
+    en: "Bilateral Legal Solution",
+  },
+  "somjhota.subtitle": {
+    bn: "আলোচনা ও সমঝোতার মাধ্যমে মামলা নিষ্পত্তি",
+    en: "Case Settlement Through Discussion & Mediation",
+  },
+  "somjhota.heroDescription": {
+    bn: "আইনি জটিলতায় জড়িয়েছেন? মামলার ঝামেলা ও দীর্ঘ প্রক্রিয়া এড়াতে চান? আমাদের এই বিশেষ সেবার মাধ্যমে দুই পক্ষ—যারা আইনি বিরোধে জড়িয়েছেন—একটি নিরপেক্ষ ও নিরাপদ অনলাইন প্ল্যাটফর্মে সরাসরি কথা বলতে পারবেন।",
+    en: "Caught in legal complications? Want to avoid case hassles and lengthy processes? Through this special service, both parties involved in legal disputes can talk directly on a neutral and secure online platform.",
+  },
+  "somjhota.peacefulSolution": {
+    bn: "শান্তিপূর্ণ সমাধান",
+    en: "Peaceful Solution",
+  },
+  "somjhota.withExpertMediation": {
+    bn: "অভিজ্ঞ আইনজীবীর মধ্যস্থতায়",
+    en: "With Expert Lawyer Mediation",
+  },
+  "somjhota.featuresTitle": {
+    bn: "আমাদের সেবার বৈশিষ্ট্য",
+    en: "Our Service Features",
+  },
+  "somjhota.featuresDescription": {
+    bn: "এই সেবাটি মূলত তাদের জন্য, যারা চায় আইনি পথ মেনেই ঝামেলাবিহীন সমাধান।",
+    en: "This service is primarily for those who want a hassle-free solution following legal procedures.",
+  },
+  "somjhota.feature1Title": {
+    bn: "নিরাপদ কলের মাধ্যমে সরাসরি আলোচনা",
+    en: "Direct Discussion Through Secure Call",
+  },
+  "somjhota.feature1Desc": {
+    bn: "আমাদের নিরাপদ প্ল্যাটফর্মে উভয় পক্ষ সরাসরি কথা বলতে পারবেন এবং তাদের বক্তব্য তুলে ধরতে পারবেন।",
+    en: "Both parties can talk directly on our secure platform and present their views.",
+  },
+  "somjhota.feature2Title": {
+    bn: "অভিজ্ঞ আইনজীবীর পরামর্শ ও মধ্যস্থতা",
+    en: "Expert Lawyer Advice & Mediation",
+  },
+  "somjhota.feature2Desc": {
+    bn: "আমাদের অভিজ্ঞ আইনজীবীরা নিরপেক্ষভাবে মধ্যস্থতা করবেন এবং আইনি পরামর্শ প্রদান করবেন।",
+    en: "Our experienced lawyers will mediate impartially and provide legal advice.",
+  },
+  "somjhota.feature3Title": {
+    bn: "স্বেচ্ছায় সমঝোতার সুযোগ",
+    en: "Voluntary Settlement Opportunity",
+  },
+  "somjhota.feature3Desc": {
+    bn: "কোনো চাপ ছাড়াই উভয় পক্ষ স্বেচ্ছায় সমঝোতায় পৌঁছানোর সুযোগ পাবেন।",
+    en: "Both parties will have the opportunity to reach a voluntary settlement without any pressure.",
+  },
+  "somjhota.feature4Title": {
+    bn: "সময় ও অর্থ সাশ্রয়",
+    en: "Time & Money Savings",
+  },
+  "somjhota.feature4Desc": {
+    bn: "দীর্ঘ আদালতি প্রক্রিয়া এড়িয়ে কম সময়ে এবং কম খরচে সমাধান পান।",
+    en: "Get solutions in less time and at lower cost by avoiding lengthy court processes.",
+  },
+  "somjhota.feature5Title": {
+    bn: "মামলা নিষ্পত্তির সহজ ও কার্যকর উপায়",
+    en: "Easy & Effective Way to Settle Cases",
+  },
+  "somjhota.feature5Desc": {
+    bn: "জটিল আইনি প্রক্রিয়া ছাড়াই সহজ এবং কার্যকর উপায়ে বিরোধ নিষ্পত্তি করুন।",
+    en: "Settle disputes easily and effectively without complex legal processes.",
+  },
+  "somjhota.feature6Title": {
+    bn: "গোপনীয়তা ও নিরাপত্তা",
+    en: "Privacy & Security",
+  },
+  "somjhota.feature6Desc": {
+    bn: "আপনার সব তথ্য এবং আলোচনা সম্পূর্ণ গোপনীয় এবং নিরাপদ রাখা হবে।",
+    en: "All your information and discussions will be kept completely confidential and secure.",
+  },
+  "somjhota.howItWorks": { bn: "কীভাবে কাজ করে?", en: "How Does It Work?" },
+  "somjhota.simpleSteps": {
+    bn: "সহজ ৪টি ধাপে সমঝোতার প্রক্রিয়া",
+    en: "Mediation Process in 4 Simple Steps",
+  },
+  "somjhota.step1Title": { bn: "আবেদন জমা দিন", en: "Submit Application" },
+  "somjhota.step1Desc": {
+    bn: "নিচের ফর্মে উভয় পক্ষের তথ্য এবং বিরোধের বিবরণ দিন",
+    en: "Provide both parties' information and dispute details in the form below",
+  },
+  "somjhota.step2Title": {
+    bn: "যোগাযোগ ও সময় নির্ধারণ",
+    en: "Contact & Scheduling",
+  },
+  "somjhota.step2Desc": {
+    bn: "আমাদের টিম উভয় পক্ষের সাথে যোগাযোগ করে উপযুক্ত সময় নির্ধারণ করবে",
+    en: "Our team will contact both parties and schedule a suitable time",
+  },
+  "somjhota.step3Title": { bn: "মধ্যস্থতা সেশন", en: "Mediation Session" },
+  "somjhota.step3Desc": {
+    bn: "অভিজ্ঞ আইনজীবীর উপস্থিতিতে নিরাপদ কলে আলোচনা",
+    en: "Discussion on secure call in the presence of an experienced lawyer",
+  },
+  "somjhota.step4Title": { bn: "সমঝোতা ও সমাধান", en: "Settlement & Solution" },
+  "somjhota.step4Desc": {
+    bn: "উভয় পক্ষের সম্মতিতে চূড়ান্ত সমাধান এবং চুক্তি",
+    en: "Final solution and agreement with consent of both parties",
+  },
+  "somjhota.applyTitle": {
+    bn: "সমঝোতার জন্য আবেদন করুন",
+    en: "Apply for Mediation",
+  },
+  "somjhota.applyDescription": {
+    bn: "নিচের ফর্মটি পূরণ করুন এবং আমাদের বিশেষজ্ঞ টিমের সাহায্য নিন",
+    en: "Fill out the form below and get help from our expert team",
+  },
+  "somjhota.party1Info": {
+    bn: "প্রথম পক্ষের তথ্য",
+    en: "First Party Information",
+  },
+  "somjhota.party2Info": {
+    bn: "দ্বিতীয় পক্ষের তথ্য",
+    en: "Second Party Information",
+  },
+  "somjhota.disputeInfo": { bn: "বিরোধের তথ্য", en: "Dispute Information" },
+  "somjhota.name": { bn: "নাম", en: "Name" },
+  "somjhota.email": { bn: "ইমেইল", en: "Email" },
+  "somjhota.phone": { bn: "ফোন", en: "Phone" },
+  "somjhota.party1NamePlaceholder": {
+    bn: "প্রথম পক্ষের নাম",
+    en: "First party's name",
+  },
+  "somjhota.party2NamePlaceholder": {
+    bn: "দ্বিতীয় পক্ষের নাম",
+    en: "Second party's name",
+  },
+  "somjhota.phonePlaceholder": { bn: "০১৭১১-১২৩৪৫৬", en: "01711-123456" },
+  "somjhota.disputeType": { bn: "বিরোধের ধরন", en: "Dispute Type" },
+  "somjhota.preferredTime": { bn: "পছন্দের সময়", en: "Preferred Time" },
+  "somjhota.preferredTimePlaceholder": {
+    bn: "যেমন: সকাল ১০টা - দুপুর ২টা",
+    en: "e.g., 10 AM - 2 PM",
+  },
+  "somjhota.disputeDescription": {
+    bn: "বিরোধের বিস্তারিত বিবরণ",
+    en: "Detailed Dispute Description",
+  },
+  "somjhota.disputeDescPlaceholder": {
+    bn: "বিরোধের কারণ, বর্তমান অবস্থা এবং আপনার প্রত্যাশিত সমাধান সম্পর্কে বিস্তারিত লিখুন...",
+    en: "Write in detail about the cause of the dispute, current situation, and your expected solution...",
+  },
+  "somjhota.termsAgree": { bn: "আমি", en: "I agree to the" },
+  "somjhota.termsConditions": { bn: "শর্তাবলী", en: "Terms & Conditions" },
+  "somjhota.and": { bn: "এবং", en: "and" },
+  "somjhota.privacyPolicy": { bn: "গোপনীয়তা নীতি", en: "Privacy Policy" },
+  "somjhota.agreeText": { bn: "মেনে নিচ্ছি", en: "" },
+  "somjhota.submitBtn": {
+    bn: "সমঝোতার জন্য আবেদন করুন",
+    en: "Apply for Mediation",
+  },
+  "somjhota.wantToKnowMore": { bn: "আরও জানতে চান?", en: "Want to Know More?" },
+  "somjhota.contactDescription": {
+    bn: "সমঝোতা সেবা সম্পর্কে বিস্তারিত জানতে আমাদের সাথে যোগাযোগ করুন",
+    en: "Contact us to learn more about mediation services",
+  },
+
+  // Dispute Types
+  "dispute.family": { bn: "পারিবারিক বিরোধ", en: "Family Dispute" },
+  "dispute.property": { bn: "সম্পত্তি বিরোধ", en: "Property Dispute" },
+  "dispute.business": { bn: "ব্যবসায়িক বিরোধ", en: "Business Dispute" },
+  "dispute.contract": { bn: "চুক্তি সংক্রান্ত বিরোধ", en: "Contract Dispute" },
+  "dispute.neighbor": { bn: "প্রতিবেশী বিরোধ", en: "Neighbor Dispute" },
+  "dispute.other": { bn: "অন্যান্য", en: "Other" },
+
+  // Success Messages
+  "somjhota.successTitle": { bn: "আবেদন সফল!", en: "Application Successful!" },
+  "somjhota.successMessage": {
+    bn: "আপনার সমঝোতার আবেদন গ্রহণ করা হয়েছে। আমাদের বিশেষজ্ঞ টিম শীঘ্রই উভয় পক্ষের সাথে যোগাযোগ করবে।",
+    en: "Your mediation application has been accepted. Our expert team will contact both parties soon.",
+  },
+  "somjhota.nextSteps": { bn: "পরবর্তী পদক্ষেপ:", en: "Next Steps:" },
+  "somjhota.nextStep1": {
+    bn: "২৪ ঘন্টার মধ্যে আমাদের কল পাবেন",
+    en: "You will receive our call within 24 hours",
+  },
+  "somjhota.nextStep2": {
+    bn: "উভয় পক্ষের সম্মতিতে সময় নির্ধারণ",
+    en: "Scheduling with consent of both parties",
+  },
+  "somjhota.nextStep3": {
+    bn: "অভিজ্ঞ আইনজীবীর উপস্থিতিতে আলোচনা",
+    en: "Discussion in presence of experienced lawyer",
+  },
+  "somjhota.backToHome": { bn: "হোমপেজে ফিরে যান", en: "Back to Homepage" },
+
+  // Step Numbers
+  "step.1": { bn: "১", en: "1" },
+  "step.2": { bn: "২", en: "2" },
+  "step.3": { bn: "৩", en: "3" },
+  "step.4": { bn: "৪", en: "4" },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
