@@ -1,0 +1,179 @@
+import React, { useState } from "react";
+import { Menu, X, Phone, MessageCircle, Globe } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+
+interface HeaderProps {
+  onAdvocateRegister?: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onAdvocateRegister }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
+
+  return (
+    <header className="bg-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white p-3 rounded-xl mr-3 shadow-lg">
+              <div className="flex items-center">
+                <MessageCircle className="h-6 w-6 mr-1" />
+                <span className="text-lg font-bold">২৪</span>
+              </div>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">
+                {t("app.name")}
+              </h1>
+              <p className="text-xs text-gray-600">{t("app.tagline")}</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            <a
+              href="#home"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.home")}
+            </a>
+            <a
+              href="#advocates"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.advocates")}
+            </a>
+            <button
+              onClick={() => (window.location.href = "#education")}
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.education")}
+            </button>
+            <button
+              onClick={() => (window.location.href = "#somjhota")}
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.somjhota")}
+            </button>
+            <a
+              href="#guidelines"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.guidelines")}
+            </a>
+            <button
+              onClick={() => (window.location.href = "#contact")}
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              {t("nav.contact")}
+            </button>
+            <button
+              onClick={onAdvocateRegister}
+              className="bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium text-sm"
+            >
+              {t("nav.registration")}
+            </button>
+
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm"
+            >
+              <Globe className="h-4 w-4 mr-1" />
+              {t("language.switch")}
+            </button>
+
+            <div className="flex items-center text-red-600 ml-4">
+              <Phone className="h-4 w-4 mr-1" />
+              <span className="text-xs font-semibold">
+                {t("emergency.999")}
+              </span>
+            </div>
+            <button className="bg-red-600 text-white px-3 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium text-sm">
+              {t("nav.emergency")}
+            </button>
+          </nav>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center space-x-2">
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center bg-purple-600 text-white px-2 py-1 rounded-lg hover:bg-purple-700 transition-colors font-medium text-xs"
+            >
+              <Globe className="h-3 w-3 mr-1" />
+              {t("language.label")}
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t">
+            <nav className="flex flex-col space-y-3">
+              <a
+                href="#home"
+                className="text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.home")}
+              </a>
+              <a
+                href="#advocates"
+                className="text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.advocates")}
+              </a>
+              <button
+                onClick={() => (window.location.href = "#education")}
+                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.education")}
+              </button>
+              <button
+                onClick={() => (window.location.href = "#somjhota")}
+                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.somjhota")}
+              </button>
+              <a
+                href="#guidelines"
+                className="text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.guidelines")}
+              </a>
+              <button
+                onClick={() => (window.location.href = "#contact")}
+                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.contact")}
+              </button>
+              <button
+                onClick={onAdvocateRegister}
+                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              >
+                {t("nav.advocateRegistration")}
+              </button>
+              <div className="pt-2 border-t">
+                <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-semibold">
+                  {t("nav.emergency")}
+                </button>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
