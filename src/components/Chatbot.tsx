@@ -10,7 +10,8 @@ import {
   Paperclip,
   Users,
 } from "lucide-react";
-import { askGemini, analyzeLegalContext } from "../utils/geminiApi";
+import { askOpenAI, analyzeLegalContext } from "../utils/openaiApi";
+import { renderFormatted } from "../utils/format";
 import { useLanguage } from "../context/LanguageContext";
 
 interface Message {
@@ -98,10 +99,10 @@ const Chatbot: React.FC<ChatbotProps> = ({
     // Show typing indicator
     setIsTyping(true);
 
-    // Get AI response from Gemini API
+    // Get AI response from OpenAI API
     setTimeout(() => {
-      // Get AI response using Gemini API
-      askGemini(messageText)
+      // Get AI response using OpenAI API
+      askOpenAI(messageText)
         .then((response) => {
           setIsTyping(false);
 
@@ -120,9 +121,15 @@ const Chatbot: React.FC<ChatbotProps> = ({
           // Add contextual follow-up if needed
           if (context.urgency === "high") {
             setTimeout(() => {
+              // Detect if user message is in Bangla
+              const isBangla = /[\u0980-\u09FF]/.test(messageText);
+              const urgentText = isBangla
+                ? `⚠️ এটি একটি জরুরি বিষয় বলে মনে হচ্ছে। অবিলম্বে আমাদের হটলাইন ০১৮৪৪-৪৪৪৪৪৪ এ যোগাযোগ করুন বা ৯৯৯ এ কল করুন।`
+                : `⚠️ This seems to be an urgent matter. Please contact our hotline 01844-444444 immediately or call 999.`;
+
               const urgentFollowUp: Message = {
                 id: Date.now() + Math.random(),
-                text: `⚠️ এটি একটি জরুরি বিষয় বলে মনে হচ্ছে। অবিলম্বে আমাদের হটলাইন ০১৮৪৪-৪৪৪৪৪৪ এ যোগাযোগ করুন বা ৯৯৯ এ কল করুন।`,
+                text: urgentText,
                 sender: "bot",
                 timestamp: new Date(),
               };
@@ -260,16 +267,49 @@ const Chatbot: React.FC<ChatbotProps> = ({
                       className="w-full mb-2"
                     />
                   )}
-                  <p className="text-sm">{message.text}</p>
+                  {message.sender === "bot" ? (
+                    <div className="text-sm">
+                      {renderFormatted(message.text)}
+                    </div>
+                  ) : (
+                    <p className="text-sm">{message.text}</p>
+                  )}
                   <p className="text-xs opacity-70 mt-1">
-                    {message.timestamp.toLocaleTimeString("bn-BD", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    {message.timestamp.toLocaleTimeString(
+                      language === "bn" ? "bn-BD" : "en-US",
+                      {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      },
+                    )}
                   </p>
                 </div>
               </div>
             ))}
+
+            {/* Typing Indicator */}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="max-w-xs p-3 rounded-lg bg-gray-100 text-gray-800">
+                  <div className="flex items-center space-x-1">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
+                      <div
+                        className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.1s" }}
+                      ></div>
+                      <div
+                        className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.2s" }}
+                      ></div>
+                    </div>
+                    <span className="text-xs text-gray-600 ml-2">
+                      {t("chatbot.typing")}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Advocate Suggestion Button */}
@@ -373,30 +413,6 @@ const Chatbot: React.FC<ChatbotProps> = ({
               </button>
             </div>
           </div>
-
-          {/* Typing Indicator */}
-          {isTyping && (
-            <div className="flex justify-start">
-              <div className="max-w-xs p-3 rounded-lg bg-gray-100 text-gray-800">
-                <div className="flex items-center space-x-1">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
-                    <div
-                      className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
-                      style={{ animationDelay: "0.1s" }}
-                    ></div>
-                    <div
-                      className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
-                      style={{ animationDelay: "0.2s" }}
-                    ></div>
-                  </div>
-                  <span className="text-xs text-gray-600 ml-2">
-                    {t("chatbot.typing")}
-                  </span>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       )}
     </>
