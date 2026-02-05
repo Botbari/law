@@ -270,7 +270,7 @@ const translations: Record<string, Record<Language, string>> = {
     bn: "জাতীয় জরুরি সেবা",
     en: "National Emergency Service",
   },
-    "footer.nationalEmergencyNumber": { bn: "৯৯৯", en: "999" },
+  "footer.nationalEmergencyNumber": { bn: "৯৯৯", en: "999" },
   "footer.womenChildren": {
     bn: "মহিলা ও শিশু নির্যাতন",
     en: "Women & Child Abuse",
@@ -380,6 +380,50 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Emergency Numbers
   "emergency.999": { bn: "৯৯৯", en: "999" },
+
+  // Location Detector
+  "location.title": {
+    bn: "আপনার লোকেশন নির্ধারণ করুন",
+    en: "Detect Your Location",
+  },
+  "location.description": {
+    bn: "আপনার এলাকার সেরা অ্যাডভোকেটদের খুঁজে পেতে লোকেশন শেয়ার করুন",
+    en: "Share your location to find the best advocates in your area",
+  },
+  "location.yourLocation": { bn: "আপনার লোকেশন:", en: "Your Location:" },
+  "location.browserNotSupported": {
+    bn: "আপনার ব্রাউজার লোকেশন সাপোর্ট করে না",
+    en: "Your browser does not support location",
+  },
+  "location.errorDetecting": {
+    bn: "লোকেশন নির্ধারণে সমস্যা হয়েছে",
+    en: "Problem detecting location",
+  },
+  "location.cannotAccess": {
+    bn: "লোকেশন অ্যাক্সেস করতে পারছি না",
+    en: "Cannot access location",
+  },
+  "location.permissionDenied": {
+    bn: "লোকেশন অনুমতি দেওয়া হয়নি",
+    en: "Location permission denied",
+  },
+  "location.unavailable": {
+    bn: "লোকেশন তথ্য পাওয়া যাচ্ছে না",
+    en: "Location information unavailable",
+  },
+  "location.timeout": {
+    bn: "লোকেশন খোঁজার সময় শেষ",
+    en: "Location search timed out",
+  },
+  "location.searching": {
+    bn: "লোকেশন খোঁজা হচ্ছে...",
+    en: "Searching for location...",
+  },
+  "location.getMyLocation": { bn: "আমার লোকেশন নিন", en: "Get My Location" },
+  "location.privacyNote": {
+    bn: "আপনার লোকেশন তথ্য সম্পূর্ণ নিরাপদ এবং গোপনীয় রাখা হবে",
+    en: "Your location information will be kept completely safe and confidential",
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
