@@ -9,10 +9,13 @@ interface LocationDetectorProps {
 const LocationDetector: React.FC<LocationDetectorProps> = ({
   onLocationDetected,
 }) => {
-  const [currentLocation, setCurrentLocation] = useState<string>("");
+  const [currentLocation, setCurrentLocation] = useState<{
+    bn: string;
+    en: string;
+  } | null>(null);
   const [isDetecting, setIsDetecting] = useState(false);
   const [error, setError] = useState<string>("");
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Bangladesh districts mapping with approximate coordinates
   const bangladeshDistricts: {
@@ -37,8 +40,11 @@ const LocationDetector: React.FC<LocationDetectorProps> = ({
   };
 
   // Find nearest district based on coordinates
-  const findNearestDistrict = (lat: number, lng: number): string => {
-    let nearestDistrict = "ঢাকা";
+  const findNearestDistrict = (
+    lat: number,
+    lng: number,
+  ): { bn: string; en: string } => {
+    let nearestDistrict = { bn: "ঢাকা", en: "Dhaka" };
     let minDistance = Infinity;
 
     for (const [district, coords] of Object.entries(bangladeshDistricts)) {
@@ -47,7 +53,7 @@ const LocationDetector: React.FC<LocationDetectorProps> = ({
       );
       if (distance < minDistance) {
         minDistance = distance;
-        nearestDistrict = district;
+        nearestDistrict = { bn: district, en: coords.nameEn };
       }
     }
 
@@ -77,36 +83,56 @@ const LocationDetector: React.FC<LocationDetectorProps> = ({
             const data = await response.json();
 
             // Extract district/city from the response
-            let detectedLocation =
+            let detectedLocationBn =
               data.address?.city ||
               data.address?.town ||
               data.address?.district ||
               data.address?.county ||
-              data.address?.state;
+              data.address?.state ||
+              "";
+
+            // Also get English version
+            const responseEn = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&accept-language=en`,
+            );
+            const dataEn = await responseEn.json();
+
+            let detectedLocationEn =
+              dataEn.address?.city ||
+              dataEn.address?.town ||
+              dataEn.address?.district ||
+              dataEn.address?.county ||
+              dataEn.address?.state ||
+              "";
 
             // If we got a location from API, use it
-            if (detectedLocation) {
-              // Try to match with our districts
+            if (detectedLocationBn || detectedLocationEn) {
+              // Try to match with our districts for better names
               for (const [district, coords] of Object.entries(
                 bangladeshDistricts,
               )) {
                 if (
-                  detectedLocation.includes(district) ||
-                  detectedLocation
+                  detectedLocationBn.includes(district) ||
+                  detectedLocationEn
                     .toLowerCase()
                     .includes(coords.nameEn.toLowerCase())
                 ) {
-                  detectedLocation = district;
+                  detectedLocationBn = district;
+                  detectedLocationEn = coords.nameEn;
                   break;
                 }
               }
-              setCurrentLocation(detectedLocation);
-              onLocationDetected(detectedLocation);
+              const location = {
+                bn: detectedLocationBn,
+                en: detectedLocationEn || detectedLocationBn,
+              };
+              setCurrentLocation(location);
+              onLocationDetected(detectedLocationBn);
             } else {
               // Fall back to nearest district calculation
               const nearestDistrict = findNearestDistrict(latitude, longitude);
               setCurrentLocation(nearestDistrict);
-              onLocationDetected(nearestDistrict);
+              onLocationDetected(nearestDistrict.bn);
             }
           } catch (apiError) {
             // If API fails, use nearest district calculation
@@ -115,7 +141,7 @@ const LocationDetector: React.FC<LocationDetectorProps> = ({
             );
             const nearestDistrict = findNearestDistrict(latitude, longitude);
             setCurrentLocation(nearestDistrict);
-            onLocationDetected(nearestDistrict);
+            onLocationDetected(nearestDistrict.bn);
           }
 
           setIsDetecting(false);
@@ -167,7 +193,8 @@ const LocationDetector: React.FC<LocationDetectorProps> = ({
             <div className="flex items-center justify-center">
               <MapPin className="h-5 w-5 text-green-600 mr-2" />
               <span className="text-green-800 font-medium">
-                {t("location.yourLocation")} {currentLocation}
+                {t("location.yourLocation")}{" "}
+                {language === "bn" ? currentLocation.bn : currentLocation.en}
               </span>
             </div>
           </div>
