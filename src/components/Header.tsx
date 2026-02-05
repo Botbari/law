@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Phone, MessageCircle, Globe } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -8,7 +8,46 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onAdvocateRegister }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, toggleLanguage, t } = useLanguage();
+  const [activeRoute, setActiveRoute] = useState("home");
+  const { toggleLanguage, t } = useLanguage();
+
+  // Track active route based on hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "") || "home";
+      setActiveRoute(hash);
+    };
+
+    // Set initial route
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  const navLinkClass = (route: string) => {
+    const isActive = activeRoute === route;
+    return `font-medium transition-colors ${
+      isActive
+        ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+        : "text-gray-700 hover:text-blue-600"
+    }`;
+  };
+
+  const mobileNavLinkClass = (route: string) => {
+    const isActive = activeRoute === route;
+    return `font-medium transition-colors ${
+      isActive
+        ? "text-blue-600 bg-blue-50 px-3 py-2 rounded-lg"
+        : "text-gray-700 hover:text-blue-600"
+    }`;
+  };
+
+  const handleNavClick = (route: string) => {
+    setActiveRoute(route);
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
@@ -33,40 +72,46 @@ const Header: React.FC<HeaderProps> = ({ onAdvocateRegister }) => {
           <nav className="hidden lg:flex items-center space-x-6">
             <a
               href="#home"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => handleNavClick("home")}
+              className={navLinkClass("home")}
             >
               {t("nav.home")}
             </a>
             <a
               href="#advocates"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => handleNavClick("advocates")}
+              className={navLinkClass("advocates")}
             >
               {t("nav.advocates")}
             </a>
-            <button
-              onClick={() => (window.location.href = "#education")}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            <a
+              href="#education"
+              onClick={() => handleNavClick("education")}
+              className={navLinkClass("education")}
             >
               {t("nav.education")}
-            </button>
-            <button
-              onClick={() => (window.location.href = "#somjhota")}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            </a>
+            <a
+              href="#somjhota"
+              onClick={() => handleNavClick("somjhota")}
+              className={navLinkClass("somjhota")}
             >
               {t("nav.somjhota")}
-            </button>
+            </a>
             <a
               href="#guidelines"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => handleNavClick("guidelines")}
+              className={navLinkClass("guidelines")}
             >
               {t("nav.guidelines")}
             </a>
-            <button
-              onClick={() => (window.location.href = "#contact")}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            <a
+              href="#contact"
+              onClick={() => handleNavClick("contact")}
+              className={navLinkClass("contact")}
             >
               {t("nav.contact")}
-            </button>
+            </a>
             <button
               onClick={onAdvocateRegister}
               className="bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium text-sm"
@@ -123,42 +168,51 @@ const Header: React.FC<HeaderProps> = ({ onAdvocateRegister }) => {
             <nav className="flex flex-col space-y-3">
               <a
                 href="#home"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                onClick={() => handleNavClick("home")}
+                className={mobileNavLinkClass("home")}
               >
                 {t("nav.home")}
               </a>
               <a
                 href="#advocates"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                onClick={() => handleNavClick("advocates")}
+                className={mobileNavLinkClass("advocates")}
               >
                 {t("nav.advocates")}
               </a>
-              <button
-                onClick={() => (window.location.href = "#education")}
-                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              <a
+                href="#education"
+                onClick={() => handleNavClick("education")}
+                className={mobileNavLinkClass("education")}
               >
                 {t("nav.education")}
-              </button>
-              <button
-                onClick={() => (window.location.href = "#somjhota")}
-                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              </a>
+              <a
+                href="#somjhota"
+                onClick={() => handleNavClick("somjhota")}
+                className={mobileNavLinkClass("somjhota")}
               >
                 {t("nav.somjhota")}
-              </button>
+              </a>
               <a
                 href="#guidelines"
-                className="text-gray-700 hover:text-blue-600 font-medium"
+                onClick={() => handleNavClick("guidelines")}
+                className={mobileNavLinkClass("guidelines")}
               >
                 {t("nav.guidelines")}
               </a>
-              <button
-                onClick={() => (window.location.href = "#contact")}
-                className="text-left text-gray-700 hover:text-blue-600 font-medium"
+              <a
+                href="#contact"
+                onClick={() => handleNavClick("contact")}
+                className={mobileNavLinkClass("contact")}
               >
                 {t("nav.contact")}
-              </button>
+              </a>
               <button
-                onClick={onAdvocateRegister}
+                onClick={() => {
+                  onAdvocateRegister?.();
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-gray-700 hover:text-blue-600 font-medium"
               >
                 {t("nav.advocateRegistration")}
