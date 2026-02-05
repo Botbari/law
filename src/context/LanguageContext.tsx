@@ -430,13 +430,31 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
+const LANGUAGE_STORAGE_KEY = "sahayata24_language";
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("bn");
+  // Initialize from localStorage or default to 'bn'
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      if (savedLanguage === "en" || savedLanguage === "bn") {
+        return savedLanguage;
+      }
+    }
+    return "bn";
+  });
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "bn" ? "en" : "bn"));
+    setLanguage((prev) => {
+      const newLanguage = prev === "bn" ? "en" : "bn";
+      // Save to localStorage
+      if (typeof window !== "undefined") {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, newLanguage);
+      }
+      return newLanguage;
+    });
   };
 
   const t = (key: string): string => {
