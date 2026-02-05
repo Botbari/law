@@ -1,5 +1,15 @@
-import React, { useState } from 'react';
-import { User, Mail, Phone, MapPin, Award, FileText, Camera, Save, ArrowLeft } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Award,
+  FileText,
+  Camera,
+  Save,
+} from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface AdvocateFormData {
   name: string;
@@ -17,39 +27,56 @@ interface AdvocateRegistrationProps {
   onChatbotOpen: () => void;
 }
 
-const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOpen }) => {
+const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({
+  onChatbotOpen,
+}) => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<AdvocateFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    location: 'ঢাকা',
-    specialization: 'ফৌজদারি আইন',
-    experience: '',
-    barCouncilId: '',
-    description: '',
-    profileImage: ''
+    name: "",
+    email: "",
+    phone: "",
+    location: "regLocation.dhaka",
+    specialization: "regSpec.criminal",
+    experience: "",
+    barCouncilId: "",
+    description: "",
+    profileImage: "",
   });
 
-  const [imagePreview, setImagePreview] = useState<string>('');
+  const [imagePreview, setImagePreview] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const locations = ['ঢাকা', 'চট্টগ্রাম', 'সিলেট', 'রাজশাহী', 'খুলনা', 'বরিশাল', 'রংপুর', 'ময়মনসিংহ'];
-  const specializations = [
-    'ফৌজদারি আইন',
-    'পারিবারিক আইন',
-    'ব্যবসায়িক আইন',
-    'সম্পত্তি আইন',
-    'শ্রম আইন',
-    'সাইবার আইন',
-    'ট্যাক্স আইন',
-    'সাংবিধানিক আইন'
+  const locations = [
+    "regLocation.dhaka",
+    "regLocation.chittagong",
+    "regLocation.sylhet",
+    "regLocation.rajshahi",
+    "regLocation.khulna",
+    "regLocation.barishal",
+    "regLocation.rangpur",
+    "regLocation.mymensingh",
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const specializations = [
+    "regSpec.criminal",
+    "regSpec.family",
+    "regSpec.business",
+    "regSpec.property",
+    "regSpec.labor",
+    "regSpec.cyber",
+    "regSpec.tax",
+    "regSpec.constitutional",
+  ];
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -60,9 +87,9 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
       reader.onload = (e) => {
         const result = e.target?.result as string;
         setImagePreview(result);
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
-          profileImage: result
+          profileImage: result,
         }));
       };
       reader.readAsDataURL(file);
@@ -72,40 +99,47 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Store in localStorage for now (in real app, would send to backend)
-    const existingAdvocates = JSON.parse(localStorage.getItem('registeredAdvocates') || '[]');
+    const existingAdvocates = JSON.parse(
+      localStorage.getItem("registeredAdvocates") || "[]",
+    );
     const newAdvocate = {
       id: Date.now(),
       name: formData.name,
-      specialization: formData.specialization,
+      specialization: t(formData.specialization),
       rating: 4.5,
-      experience: `${formData.experience}+ বছর`,
-      location: formData.location,
+      experience: `${formData.experience}+ ${t("advocates.years") || "years"}`,
+      location: t(formData.location),
       phone: formData.phone,
-      image: formData.profileImage || "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image:
+        formData.profileImage ||
+        "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
       cases: 0,
       available: true,
       description: formData.description,
-      barCouncilId: formData.barCouncilId
+      barCouncilId: formData.barCouncilId,
     };
-    
+
     existingAdvocates.push(newAdvocate);
-    localStorage.setItem('registeredAdvocates', JSON.stringify(existingAdvocates));
+    localStorage.setItem(
+      "registeredAdvocates",
+      JSON.stringify(existingAdvocates),
+    );
     setIsSubmitted(true);
-    
+
     // Reset form
     setTimeout(() => {
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        location: 'ঢাকা',
-        specialization: 'ফৌজদারি আইন',
-        experience: '',
-        barCouncilId: '',
-        description: '',
-        profileImage: ''
+        name: "",
+        email: "",
+        phone: "",
+        location: "regLocation.dhaka",
+        specialization: "regSpec.criminal",
+        experience: "",
+        barCouncilId: "",
+        description: "",
+        profileImage: "",
       });
-      setImagePreview('');
+      setImagePreview("");
       setIsSubmitted(false);
     }, 3000);
   };
@@ -116,26 +150,38 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
         <div className="max-w-2xl mx-auto text-center">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              <svg
+                className="w-10 h-10 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">রেজিস্ট্রেশন সফল!</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              {t("advocateReg.successTitle")}
+            </h2>
             <p className="text-lg text-gray-600 mb-6">
-              আপনার প্রোফাইল সফলভাবে তৈরি হয়েছে। আপনার তথ্য যাচাই করার পর ওয়েবসাইটে প্রকাশ করা হবে।
+              {t("advocateReg.successMessage")}
             </p>
             <div className="space-y-3">
               <button
-                onClick={() => window.location.href = '#home'}
+                onClick={() => (window.location.href = "#home")}
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors"
               >
-                হোমপেজে ফিরে যান
+                {t("advocateReg.backToHome")}
               </button>
               <button
                 onClick={onChatbotOpen}
                 className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-green-700 transition-colors"
               >
-                চ্যাটবটের সাথে কথা বলুন
+                {t("advocateReg.chatWithBot")}
               </button>
             </div>
           </div>
@@ -149,13 +195,18 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
         {/* Header */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900">অ্যাডভোকেট রেজিস্ট্রেশন</h1>
-            <p className="text-gray-600 mt-2">আপনার তথ্য দিয়ে প্রোফাইল তৈরি করুন এবং ক্লায়েন্টদের সাহায্য করুন</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {t("advocateReg.title")}
+            </h1>
+            <p className="text-gray-600 mt-2">{t("advocateReg.subtitle")}</p>
           </div>
         </div>
 
         {/* Registration Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-lg shadow-lg p-8"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column */}
             <div className="space-y-6">
@@ -164,7 +215,11 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                 <div className="relative inline-block">
                   <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                     {imagePreview ? (
-                      <img src={imagePreview} alt="Profile" className="w-full h-full object-cover" />
+                      <img
+                        src={imagePreview}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <User className="h-16 w-16 text-gray-400" />
                     )}
@@ -179,14 +234,16 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                     />
                   </label>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">প্রোফাইল ছবি আপলোড করুন</p>
+                <p className="text-sm text-gray-600 mt-2">
+                  {t("advocateReg.uploadPhoto")}
+                </p>
               </div>
 
               {/* Basic Information */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <User className="h-4 w-4 inline mr-2" />
-                  পূর্ণ নাম *
+                  {t("advocateReg.fullName")} *
                 </label>
                 <input
                   type="text"
@@ -195,14 +252,14 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   onChange={handleInputChange}
                   required
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                  placeholder="আপনার পূর্ণ নাম লিখুন"
+                  placeholder={t("advocateReg.fullNamePlaceholder")}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Mail className="h-4 w-4 inline mr-2" />
-                  ইমেইল ঠিকানা *
+                  {t("advocateReg.emailAddress")} *
                 </label>
                 <input
                   type="email"
@@ -218,7 +275,7 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Phone className="h-4 w-4 inline mr-2" />
-                  মোবাইল নম্বর *
+                  {t("advocateReg.mobileNumber")} *
                 </label>
                 <input
                   type="tel"
@@ -227,14 +284,14 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   onChange={handleInputChange}
                   required
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                  placeholder="০১৭১১-১২৩৪৫৬"
+                  placeholder={t("advocateReg.phonePlaceholder")}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <MapPin className="h-4 w-4 inline mr-2" />
-                  কর্মস্থল *
+                  {t("advocateReg.workplace")} *
                 </label>
                 <select
                   name="location"
@@ -244,7 +301,9 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                 >
                   {locations.map((location) => (
-                    <option key={location} value={location}>{location}</option>
+                    <option key={location} value={location}>
+                      {t(location)}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -255,7 +314,7 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Award className="h-4 w-4 inline mr-2" />
-                  বিশেষজ্ঞতার ক্ষেত্র *
+                  {t("advocateReg.specialization")} *
                 </label>
                 <select
                   name="specialization"
@@ -265,14 +324,16 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                 >
                   {specializations.map((spec) => (
-                    <option key={spec} value={spec}>{spec}</option>
+                    <option key={spec} value={spec}>
+                      {t(spec)}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  অভিজ্ঞতা (বছর) *
+                  {t("advocateReg.experienceYears")} *
                 </label>
                 <input
                   type="number"
@@ -283,14 +344,14 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   min="1"
                   max="50"
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                  placeholder="৫"
+                  placeholder="5"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <FileText className="h-4 w-4 inline mr-2" />
-                  বার কাউন্সিল আইডি *
+                  {t("advocateReg.barCouncilId")} *
                 </label>
                 <input
                   type="text"
@@ -305,7 +366,7 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  নিজের সম্পর্কে বিস্তারিত
+                  {t("advocateReg.aboutYourself")}
                 </label>
                 <textarea
                   name="description"
@@ -313,7 +374,7 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                   onChange={handleInputChange}
                   rows={6}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                  placeholder="আপনার শিক্ষাগত যোগ্যতা, অভিজ্ঞতা এবং বিশেষত্ব সম্পর্কে লিখুন..."
+                  placeholder={t("advocateReg.aboutPlaceholder")}
                 />
               </div>
             </div>
@@ -329,8 +390,15 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-700">
-                আমি <a href="#" className="text-blue-600 hover:underline">শর্তাবলী</a> এবং 
-                <a href="#" className="text-blue-600 hover:underline ml-1">গোপনীয়তা নীতি</a> মেনে নিচ্ছি
+                {t("advocateReg.termsAgree")}{" "}
+                <a href="#" className="text-blue-600 hover:underline">
+                  {t("advocateReg.termsConditions")}
+                </a>{" "}
+                {t("advocateReg.and")}
+                <a href="#" className="text-blue-600 hover:underline ml-1">
+                  {t("advocateReg.privacyPolicy")}
+                </a>{" "}
+                {t("advocateReg.agreeText")}
               </label>
             </div>
 
@@ -339,21 +407,21 @@ const AdvocateRegistration: React.FC<AdvocateRegistrationProps> = ({ onChatbotOp
               className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
             >
               <Save className="h-5 w-5 mr-2" />
-              রেজিস্ট্রেশন সম্পন্ন করুন
+              {t("advocateReg.submitBtn")}
             </button>
           </div>
         </form>
 
         {/* Help Section */}
         <div className="mt-8 bg-blue-50 rounded-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-3">সাহায্য প্রয়োজন?</h3>
-          <p className="text-gray-700 mb-4">
-            রেজিস্ট্রেশনে কোনো সমস্যা হলে আমাদের সাথে যোগাযোগ করুন:
-          </p>
+          <h3 className="text-lg font-bold text-gray-900 mb-3">
+            {t("advocateReg.needHelp")}
+          </h3>
+          <p className="text-gray-700 mb-4">{t("advocateReg.helpDesc")}</p>
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex items-center">
               <Phone className="h-4 w-4 text-blue-600 mr-2" />
-              <span className="text-sm">০১৮৪৪-৪৪৪৪৪৪</span>
+              <span className="text-sm">{t("phone.hotline")}</span>
             </div>
             <div className="flex items-center">
               <Mail className="h-4 w-4 text-blue-600 mr-2" />

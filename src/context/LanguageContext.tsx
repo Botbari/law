@@ -881,6 +881,93 @@ const translations: Record<string, Record<Language, string>> = {
   "phone.general": { bn: "০১৭১১-১২৩৪৫৬", en: "01711-123456" },
   "phone.support": { bn: "০১৮১৫-৭৮৯০১২", en: "01815-789012" },
   "phone.hotline": { bn: "০১৮৪৪-৪৪৪৪৪৪", en: "01844-444444" },
+
+  // Advocate Registration Page
+  "advocateReg.title": {
+    bn: "অ্যাডভোকেট রেজিস্ট্রেশন",
+    en: "Advocate Registration",
+  },
+  "advocateReg.subtitle": {
+    bn: "আপনার তথ্য দিয়ে প্রোফাইল তৈরি করুন এবং ক্লায়েন্টদের সাহায্য করুন",
+    en: "Create your profile with your information and help clients",
+  },
+  "advocateReg.uploadPhoto": {
+    bn: "প্রোফাইল ছবি আপলোড করুন",
+    en: "Upload profile photo",
+  },
+  "advocateReg.fullName": { bn: "পূর্ণ নাম", en: "Full Name" },
+  "advocateReg.fullNamePlaceholder": {
+    bn: "আপনার পূর্ণ নাম লিখুন",
+    en: "Enter your full name",
+  },
+  "advocateReg.emailAddress": { bn: "ইমেইল ঠিকানা", en: "Email Address" },
+  "advocateReg.mobileNumber": { bn: "মোবাইল নম্বর", en: "Mobile Number" },
+  "advocateReg.phonePlaceholder": { bn: "০১৭১১-১২৩৪৫৬", en: "01711-123456" },
+  "advocateReg.workplace": { bn: "কর্মস্থল", en: "Workplace" },
+  "advocateReg.specialization": {
+    bn: "বিশেষজ্ঞতার ক্ষেত্র",
+    en: "Area of Specialization",
+  },
+  "advocateReg.experienceYears": {
+    bn: "অভিজ্ঞতা (বছর)",
+    en: "Experience (Years)",
+  },
+  "advocateReg.barCouncilId": { bn: "বার কাউন্সিল আইডি", en: "Bar Council ID" },
+  "advocateReg.aboutYourself": {
+    bn: "নিজের সম্পর্কে বিস্তারিত",
+    en: "About Yourself",
+  },
+  "advocateReg.aboutPlaceholder": {
+    bn: "আপনার শিক্ষাগত যোগ্যতা, অভিজ্ঞতা এবং বিশেষত্ব সম্পর্কে লিখুন...",
+    en: "Write about your educational qualifications, experience and specialties...",
+  },
+  "advocateReg.termsAgree": { bn: "আমি", en: "I agree to the" },
+  "advocateReg.termsConditions": { bn: "শর্তাবলী", en: "Terms & Conditions" },
+  "advocateReg.and": { bn: "এবং", en: "and" },
+  "advocateReg.privacyPolicy": { bn: "গোপনীয়তা নীতি", en: "Privacy Policy" },
+  "advocateReg.agreeText": { bn: "মেনে নিচ্ছি", en: "" },
+  "advocateReg.submitBtn": {
+    bn: "রেজিস্ট্রেশন সম্পন্ন করুন",
+    en: "Complete Registration",
+  },
+  "advocateReg.needHelp": { bn: "সাহায্য প্রয়োজন?", en: "Need Help?" },
+  "advocateReg.helpDesc": {
+    bn: "রেজিস্ট্রেশনে কোনো সমস্যা হলে আমাদের সাথে যোগাযোগ করুন:",
+    en: "Contact us if you have any problems with registration:",
+  },
+  "advocateReg.successTitle": {
+    bn: "রেজিস্ট্রেশন সফল!",
+    en: "Registration Successful!",
+  },
+  "advocateReg.successMessage": {
+    bn: "আপনার প্রোফাইল সফলভাবে তৈরি হয়েছে। আপনার তথ্য যাচাই করার পর ওয়েবসাইটে প্রকাশ করা হবে।",
+    en: "Your profile has been created successfully. Your information will be published on the website after verification.",
+  },
+  "advocateReg.backToHome": { bn: "হোমপেজে ফিরে যান", en: "Back to Homepage" },
+  "advocateReg.chatWithBot": {
+    bn: "চ্যাটবটের সাথে কথা বলুন",
+    en: "Chat with Bot",
+  },
+
+  // Locations for Registration
+  "regLocation.dhaka": { bn: "ঢাকা", en: "Dhaka" },
+  "regLocation.chittagong": { bn: "চট্টগ্রাম", en: "Chittagong" },
+  "regLocation.sylhet": { bn: "সিলেট", en: "Sylhet" },
+  "regLocation.rajshahi": { bn: "রাজশাহী", en: "Rajshahi" },
+  "regLocation.khulna": { bn: "খুলনা", en: "Khulna" },
+  "regLocation.barishal": { bn: "বরিশাল", en: "Barishal" },
+  "regLocation.rangpur": { bn: "রংপুর", en: "Rangpur" },
+  "regLocation.mymensingh": { bn: "ময়মনসিংহ", en: "Mymensingh" },
+
+  // Specializations for Registration
+  "regSpec.criminal": { bn: "ফৌজদারি আইন", en: "Criminal Law" },
+  "regSpec.family": { bn: "পারিবারিক আইন", en: "Family Law" },
+  "regSpec.business": { bn: "ব্যবসায়িক আইন", en: "Business Law" },
+  "regSpec.property": { bn: "সম্পত্তি আইন", en: "Property Law" },
+  "regSpec.labor": { bn: "শ্রম আইন", en: "Labor Law" },
+  "regSpec.cyber": { bn: "সাইবার আইন", en: "Cyber Law" },
+  "regSpec.tax": { bn: "ট্যাক্স আইন", en: "Tax Law" },
+  "regSpec.constitutional": { bn: "সাংবিধানিক আইন", en: "Constitutional Law" },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
