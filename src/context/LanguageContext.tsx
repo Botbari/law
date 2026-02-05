@@ -424,6 +424,117 @@ const translations: Record<string, Record<Language, string>> = {
     bn: "আপনার লোকেশন তথ্য সম্পূর্ণ নিরাপদ এবং গোপনীয় রাখা হবে",
     en: "Your location information will be kept completely safe and confidential",
   },
+
+  // Education Page
+  "education.title": { bn: "আইনি শিক্ষা কেন্দ্র", en: "Legal Education Center" },
+  "education.heroDescription": {
+    bn: "বিনামূল্যে আইনি শিক্ষা নিন। বিশেষজ্ঞদের তৈরি ভিডিও টিউটোরিয়াল দেখুন এবং আইনি জ্ঞান বৃদ্ধি করুন। AI চ্যাটবট আপনাকে সঠিক ভিডিও খুঁজে দিতে সাহায্য করবে।",
+    en: "Get free legal education. Watch video tutorials created by experts and increase your legal knowledge. AI chatbot will help you find the right videos.",
+  },
+  "education.aiVideoSuggestion": { bn: "🤖 AI ভিডিও সাজেশন নিন", en: "🤖 Get AI Video Suggestions" },
+  "education.seeAllVideos": { bn: "📚 সব ভিডিও দেখুন", en: "📚 See All Videos" },
+  "education.aiChatbotTitle": { bn: "AI ভিডিও সাজেশন চ্যাটবট", en: "AI Video Suggestion Chatbot" },
+  "education.aiChatbotDescription": {
+    bn: "আপনার প্রয়োজন অনুযায়ী সঠিক আইনি শিক্ষামূলক ভিডিও খুঁজে পেতে আমাদের AI চ্যাটবটের সাহায্য নিন। শুধু আপনার প্রশ্ন বা বিষয় লিখুন, চ্যাটবট আপনাকে উপযুক্ত ভিডিও সাজেস্ট করবে।",
+    en: "Get help from our AI chatbot to find the right legal educational videos according to your needs. Just type your question or topic, the chatbot will suggest appropriate videos.",
+  },
+  "education.smartVideoSearch": { bn: "স্মার্ট ভিডিও সার্চ", en: "Smart Video Search" },
+  "education.topicSuggestion": { bn: "বিষয়ভিত্তিক সাজেশন", en: "Topic-based Suggestions" },
+  "education.instantHelp": { bn: "তাৎক্ষণিক সহায়তা", en: "Instant Help" },
+  "education.startChatbot": { bn: "চ্যাটবট শুরু করুন", en: "Start Chatbot" },
+  "education.videoCollection": { bn: "ভিডিও টিউটোরিয়াল সংগ্রহ", en: "Video Tutorial Collection" },
+  "education.videoCollectionDesc": {
+    bn: "বিশেষজ্ঞ আইনজীবী এবং শিক্ষকদের তৈরি উচ্চমানের আইনি শিক্ষামূলক ভিডিও",
+    en: "High-quality legal educational videos created by expert lawyers and teachers",
+  },
+  "education.searchVideos": { bn: "ভিডিও খুঁজুন...", en: "Search videos..." },
+  "education.noVideosFound": { bn: "কোনো ভিডিও পাওয়া যায়নি", en: "No videos found" },
+  "education.noVideosFoundDesc": {
+    bn: "আপনার সার্চ টার্ম বা ক্যাটেগরি পরিবর্তন করে আবার চেষ্টা করুন",
+    en: "Try again by changing your search term or category",
+  },
+  "education.getAiHelp": { bn: "AI চ্যাটবটের সাহায্য নিন", en: "Get AI Chatbot Help" },
+  "education.wantToKnowMore": { bn: "আরও জানতে চান?", en: "Want to know more?" },
+  "education.ctaDescription": {
+    bn: "আমাদের AI চ্যাটবট আপনাকে সঠিক ভিডিও খুঁজে দিতে এবং আইনি প্রশ্নের উত্তর দিতে সাহায্য করবে",
+    en: "Our AI chatbot will help you find the right videos and answer your legal questions",
+  },
+  "education.findAdvocate": { bn: "অ্যাডভোকেট খুঁজুন", en: "Find Advocate" },
+  "education.instructor": { bn: "শিক্ষক:", en: "Instructor:" },
+
+  // Video Categories
+  "category.all": { bn: "সব", en: "All" },
+  "category.constitutional": { bn: "সাংবিধানিক আইন", en: "Constitutional Law" },
+  "category.family": { bn: "পারিবারিক আইন", en: "Family Law" },
+  "category.property": { bn: "সম্পত্তি আইন", en: "Property Law" },
+  "category.criminal": { bn: "ফৌজদারি আইন", en: "Criminal Law" },
+  "category.business": { bn: "ব্যবসায়িক আইন", en: "Business Law" },
+  "category.cyber": { bn: "সাইবার আইন", en: "Cyber Law" },
+
+  // Video Levels
+  "level.beginner": { bn: "শুরুর দিকে", en: "Beginner" },
+  "level.intermediate": { bn: "মধ্যম", en: "Intermediate" },
+  "level.advanced": { bn: "উন্নত", en: "Advanced" },
+
+  // Video Titles & Descriptions
+  "video1.title": { bn: "বাংলাদেশের সংবিধান - মৌলিক অধিকার", en: "Bangladesh Constitution - Fundamental Rights" },
+  "video1.description": {
+    bn: "বাংলাদেশের সংবিধানে বর্ণিত নাগরিকদের মৌলিক অধিকার সম্পর্কে বিস্তারিত আলোচনা",
+    en: "Detailed discussion about the fundamental rights of citizens described in the Constitution of Bangladesh",
+  },
+  "video2.title": { bn: "পারিবারিক আইন - বিবাহ ও বিবাহবিচ্ছেদ", en: "Family Law - Marriage and Divorce" },
+  "video2.description": {
+    bn: "ইসলামী পারিবারিক আইন অনুযায়ী বিবাহ এবং বিবাহবিচ্ছেদের নিয়মকানুন",
+    en: "Marriage and divorce rules according to Islamic family law",
+  },
+  "video3.title": { bn: "সম্পত্তি আইন - জমি ক্রয়-বিক্রয়ের নিয়ম", en: "Property Law - Land Purchase Rules" },
+  "video3.description": {
+    bn: "জমি কেনাবেচার সময় কী কী বিষয় খেয়াল রাখতে হবে এবং প্রয়োজনীয় কাগজপত্র",
+    en: "Things to keep in mind when buying and selling land and required documents",
+  },
+  "video4.title": { bn: "ফৌজদারি আইন - মামলা দায়ের প্রক্রিয়া", en: "Criminal Law - Case Filing Process" },
+  "video4.description": {
+    bn: "থানায় মামলা দায়ের থেকে শুরু করে কোর্টে হাজিরা পর্যন্ত সম্পূর্ণ প্রক্রিয়া",
+    en: "Complete process from filing a case at the police station to appearing in court",
+  },
+  "video5.title": { bn: "ব্যবসায়িক আইন - কোম্পানি নিবন্ধন", en: "Business Law - Company Registration" },
+  "video5.description": {
+    bn: "বাংলাদেশে নতুন কোম্পানি গঠনের জন্য প্রয়োজনীয় পদক্ষেপ এবং আইনি প্রক্রিয়া",
+    en: "Steps and legal process required to form a new company in Bangladesh",
+  },
+  "video6.title": { bn: "সাইবার আইন - অনলাইন নিরাপত্তা", en: "Cyber Law - Online Security" },
+  "video6.description": {
+    bn: "সাইবার ক্রাইম থেকে নিজেকে রক্ষা করার উপায় এবং আইনি প্রতিকার",
+    en: "Ways to protect yourself from cybercrime and legal remedies",
+  },
+
+  // Instructor Names
+  "instructor.ahmed": { bn: "ড. আহমেদ করিম", en: "Dr. Ahmed Karim" },
+  "instructor.fatema": { bn: "ব্যারিস্টার ফাতেমা খাতুন", en: "Barrister Fatema Khatun" },
+  "instructor.rahim": { bn: "অ্যাডভোকেট রহিম উদ্দিন", en: "Advocate Rahim Uddin" },
+  "instructor.nasir": { bn: "ব্যারিস্টার নাসির হোসেন", en: "Barrister Nasir Hossain" },
+  "instructor.salma": { bn: "ড. সালমা আক্তার", en: "Dr. Salma Akter" },
+  "instructor.tania": { bn: "অ্যাডভোকেট তানিয়া রহমান", en: "Advocate Tania Rahman" },
+
+  // Video Stats (formatted numbers)
+  "views.25432": { bn: "২৫,৪৩২", en: "25,432" },
+  "views.18765": { bn: "১৮,৭৬৫", en: "18,765" },
+  "views.32109": { bn: "৩২,১০৯", en: "32,109" },
+  "views.14893": { bn: "১৪,৮৯৩", en: "14,893" },
+  "views.11234": { bn: "১১,২৩৪", en: "11,234" },
+  "views.9876": { bn: "৯,৮৭৬", en: "9,876" },
+  "likes.1234": { bn: "১,২৩৪", en: "1,234" },
+  "likes.987": { bn: "৯৮৭", en: "987" },
+  "likes.1567": { bn: "১,৫৬৭", en: "1,567" },
+  "likes.789": { bn: "৭৮৯", en: "789" },
+  "likes.654": { bn: "৬৫৪", en: "654" },
+  "likes.543": { bn: "৫৪৩", en: "543" },
+  "duration.1530": { bn: "১৫:৩০", en: "15:30" },
+  "duration.2215": { bn: "২২:১৫", en: "22:15" },
+  "duration.1845": { bn: "১৮:৪৫", en: "18:45" },
+  "duration.2820": { bn: "২৮:২০", en: "28:20" },
+  "duration.2510": { bn: "২৫:১০", en: "25:10" },
+  "duration.2035": { bn: "২০:৩৫", en: "20:35" },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
