@@ -270,11 +270,17 @@ const translations: Record<string, Record<Language, string>> = {
     bn: "জাতীয় জরুরি সেবা",
     en: "National Emergency Service",
   },
+    "footer.nationalEmergencyNumber": { bn: "৯৯৯", en: "999" },
   "footer.womenChildren": {
     bn: "মহিলা ও শিশু নির্যাতন",
     en: "Women & Child Abuse",
   },
+  "footer.womenChildrenNumber": {
+    bn: "১০৯",
+    en: "109",
+  },
   "footer.ourHotline": { bn: "আমাদের হটলাইন", en: "Our Hotline" },
+  "footer.ourHotlineNumber": { bn: "০১৮৪৪-৪৪৪৪৪৪", en: "01844-444444" },
   "footer.description": {
     bn: "বাংলাদেশের প্রথম ডিজিটাল আইনি সহায়তা প্ল্যাটফর্ম। আমরা সাধারণ মানুষের পাশে আছি আইনি বিপদের সময়।",
     en: "Bangladesh's first digital legal assistance platform. We stand with common people in times of legal trouble.",

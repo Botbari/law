@@ -31,15 +31,19 @@ const Footer = () => {
             </div>
             <div className="flex items-center space-x-6">
               <div className="text-center">
-                <p className="font-bold text-xl">৯৯৯</p>
+                <p className="font-bold text-xl">
+                  {t("footer.nationalEmergencyNumber")}
+                </p>
                 <p className="text-xs">{t("footer.nationalEmergency")}</p>
               </div>
               <div className="text-center">
-                <p className="font-bold text-xl">১০৯</p>
+                <p className="font-bold text-xl">{t("footer.womenChildrenNumber")}</p>
                 <p className="text-xs">{t("footer.womenChildren")}</p>
               </div>
               <div className="text-center">
-                <p className="font-bold text-xl">০১৮৪৪-৪৪৪৪৪৪</p>
+                <p className="font-bold text-xl">
+                  {t("footer.ourHotlineNumber")}
+                </p>
                 <p className="text-xs">{t("footer.ourHotline")}</p>
               </div>
             </div>
