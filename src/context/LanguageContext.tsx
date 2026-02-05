@@ -793,6 +793,94 @@ const translations: Record<string, Record<Language, string>> = {
   "step.2": { bn: "২", en: "2" },
   "step.3": { bn: "৩", en: "3" },
   "step.4": { bn: "৪", en: "4" },
+
+  // Contact Page
+  "contact.title": { bn: "যোগাযোগ করুন", en: "Contact Us" },
+  "contact.description": {
+    bn: "আপনার কোনো প্রশ্ন বা সমস্যা থাকলে আমাদের সাথে যোগাযোগ করুন। আমরা ২৪/৭ আপনার সেবায় নিয়োজিত।",
+    en: "Contact us if you have any questions or problems. We are at your service 24/7.",
+  },
+  "contact.info": { bn: "যোগাযোগের তথ্য", en: "Contact Information" },
+  "contact.emergency": { bn: "জরুরি যোগাযোগ", en: "Emergency Contact" },
+  "contact.999": { bn: "৯৯৯", en: "999" },
+  "contact.nationalEmergency": {
+    bn: "জাতীয় জরুরি সেবা",
+    en: "National Emergency Service",
+  },
+  "contact.ourHotline": {
+    bn: "আমাদের জরুরি হটলাইন",
+    en: "Our Emergency Hotline",
+  },
+  "contact.phone": { bn: "ফোন", en: "Phone" },
+  "contact.generalContact": { bn: "সাধারণ যোগাযোগ:", en: "General Contact:" },
+  "contact.support": { bn: "সাপোর্ট:", en: "Support:" },
+  "contact.email": { bn: "ইমেইল", en: "Email" },
+  "contact.general": { bn: "সাধারণ:", en: "General:" },
+  "contact.emergencyEmail": { bn: "জরুরি:", en: "Emergency:" },
+  "contact.address": { bn: "ঠিকানা", en: "Address" },
+  "contact.dhakaOffice": { bn: "ঢাকা অফিস:", en: "Dhaka Office:" },
+  "contact.dhakaAddress": {
+    bn: "১২৩, ধানমন্ডি রোড নং ২৭\nধানমন্ডি, ঢাকা-১২০৫",
+    en: "123, Dhanmondi Road No. 27\nDhanmondi, Dhaka-1205",
+  },
+  "contact.chittagongOffice": {
+    bn: "চট্টগ্রাম অফিস:",
+    en: "Chittagong Office:",
+  },
+  "contact.chittagongAddress": {
+    bn: "৪৫৬, নাসিরাবাদ\nচট্টগ্রাম-৪০০০",
+    en: "456, Nasirabad\nChittagong-4000",
+  },
+  "contact.serviceHours": { bn: "সেবার সময়", en: "Service Hours" },
+  "contact.emergencyService": {
+    bn: "জরুরি সেবা: ২৪/৭",
+    en: "Emergency Service: 24/7",
+  },
+  "contact.generalService": {
+    bn: "সাধারণ সেবা: সকাল ৯টা - রাত ৯টা",
+    en: "General Service: 9 AM - 9 PM",
+  },
+  "contact.weeklyHoliday": {
+    bn: "সাপ্তাহিক ছুটি: শুক্রবার",
+    en: "Weekly Holiday: Friday",
+  },
+  "contact.writeToUs": { bn: "আমাদের লিখুন", en: "Write to Us" },
+  "contact.yourName": { bn: "আপনার নাম", en: "Your Name" },
+  "contact.namePlaceholder": { bn: "আপনার পূর্ণ নাম", en: "Your full name" },
+  "contact.emailAddress": { bn: "ইমেইল ঠিকানা", en: "Email Address" },
+  "contact.mobileNumber": { bn: "মোবাইল নম্বর", en: "Mobile Number" },
+  "contact.phonePlaceholder": { bn: "০১৭১১-১২৩৪৫৬", en: "01711-123456" },
+  "contact.urgencyLevel": { bn: "জরুরি মাত্রা", en: "Urgency Level" },
+  "contact.subject": { bn: "বিষয়", en: "Subject" },
+  "contact.subjectPlaceholder": {
+    bn: "আপনার সমস্যার বিষয়",
+    en: "Subject of your issue",
+  },
+  "contact.detailedMessage": { bn: "বিস্তারিত বার্তা", en: "Detailed Message" },
+  "contact.messagePlaceholder": {
+    bn: "আপনার সমস্যার বিস্তারিত বর্ণনা দিন...",
+    en: "Describe your problem in detail...",
+  },
+  "contact.sendMessage": { bn: "বার্তা পাঠান", en: "Send Message" },
+  "contact.quickContact": { bn: "দ্রুত যোগাযোগ", en: "Quick Contact" },
+  "contact.liveChat": { bn: "লাইভ চ্যাট", en: "Live Chat" },
+  "contact.callUs": { bn: "কল করুন", en: "Call Us" },
+  "contact.messageSent": { bn: "বার্তা পাঠানো হয়েছে!", en: "Message Sent!" },
+  "contact.messageSentDesc": {
+    bn: "আপনার বার্তা আমাদের কাছে পৌঁছেছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।",
+    en: "Your message has reached us. We will contact you soon.",
+  },
+  "contact.backToHome": { bn: "হোমপেজে ফিরে যান", en: "Back to Homepage" },
+
+  // Urgency Levels
+  "urgency.normal": { bn: "সাধারণ", en: "Normal" },
+  "urgency.urgent": { bn: "জরুরি", en: "Urgent" },
+  "urgency.veryUrgent": { bn: "অতি জরুরি", en: "Very Urgent" },
+
+  // Phone Numbers
+  "phone.general": { bn: "০১৭১১-১২৩৪৫৬", en: "01711-123456" },
+  "phone.support": { bn: "০১৮১৫-৭৮৯০১২", en: "01815-789012" },
+  "phone.hotline": { bn: "০১৮৪৪-৪৪৪৪৪৪", en: "01844-444444" },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(

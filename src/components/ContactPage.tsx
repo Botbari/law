@@ -1,22 +1,38 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, User, FileText, AlertCircle } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  Send,
+  User,
+  FileText,
+  AlertCircle,
+} from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const ContactPage = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-    urgency: 'সাধারণ'
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    urgency: "urgency.normal",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -24,16 +40,16 @@ const ContactPage = () => {
     e.preventDefault();
     // Simulate form submission
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        urgency: 'সাধারণ'
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        urgency: "urgency.normal",
       });
       setIsSubmitted(false);
     }, 3000);
@@ -45,19 +61,31 @@ const ContactPage = () => {
         <div className="max-w-2xl mx-auto text-center">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              <svg
+                className="w-10 h-10 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">বার্তা পাঠানো হয়েছে!</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              {t("contact.messageSent")}
+            </h2>
             <p className="text-lg text-gray-600 mb-6">
-              আপনার বার্তা আমাদের কাছে পৌঁছেছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
+              {t("contact.messageSentDesc")}
             </p>
             <button
-              onClick={() => window.location.href = '#home'}
+              onClick={() => (window.location.href = "#home")}
               className="bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >
-              হোমপেজে ফিরে যান
+              {t("contact.backToHome")}
             </button>
           </div>
         </div>
@@ -70,37 +98,48 @@ const ContactPage = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">যোগাযোগ করুন</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            {t("contact.title")}
+          </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            আপনার কোনো প্রশ্ন বা সমস্যা থাকলে আমাদের সাথে যোগাযোগ করুন। 
-            আমরা ২৪/৭ আপনার সেবায় নিয়োজিত।
+            {t("contact.description")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">যোগাযোগের তথ্য</h2>
-            
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              {t("contact.info")}
+            </h2>
+
             {/* Emergency Contact */}
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
               <div className="flex items-center mb-4">
                 <AlertCircle className="h-6 w-6 text-red-600 mr-3" />
-                <h3 className="text-lg font-bold text-red-800">জরুরি যোগাযোগ</h3>
+                <h3 className="text-lg font-bold text-red-800">
+                  {t("contact.emergency")}
+                </h3>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-red-600 mr-3" />
                   <div>
-                    <p className="font-bold text-red-800">৯৯৯</p>
-                    <p className="text-sm text-red-600">জাতীয় জরুরি সেবা</p>
+                    <p className="font-bold text-red-800">{t("contact.999")}</p>
+                    <p className="text-sm text-red-600">
+                      {t("contact.nationalEmergency")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-red-600 mr-3" />
                   <div>
-                    <p className="font-bold text-red-800">০১৮৪৪-৪৪৪৪৪ৄ</p>
-                    <p className="text-sm text-red-600">আমাদের জরুরি হটলাইন</p>
+                    <p className="font-bold text-red-800">
+                      {t("phone.hotline")}
+                    </p>
+                    <p className="text-sm text-red-600">
+                      {t("contact.ourHotline")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -111,41 +150,71 @@ const ContactPage = () => {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center mb-4">
                   <Phone className="h-6 w-6 text-blue-600 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-900">ফোন</h3>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {t("contact.phone")}
+                  </h3>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-gray-700">সাধারণ যোগাযোগ: ০১৭১১-১২৩৪৫৬</p>
-                  <p className="text-gray-700">সাপোর্ট: ০১৮১৫-৭৮৯০১২</p>
+                  <p className="text-gray-700">
+                    {t("contact.generalContact")} {t("phone.general")}
+                  </p>
+                  <p className="text-gray-700">
+                    {t("contact.support")} {t("phone.support")}
+                  </p>
                 </div>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center mb-4">
                   <Mail className="h-6 w-6 text-green-600 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-900">ইমেইল</h3>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {t("contact.email")}
+                  </h3>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-gray-700">সাধারণ: info@legalaid.bd</p>
-                  <p className="text-gray-700">সাপোর্ট: support@legalaid.bd</p>
-                  <p className="text-gray-700">জরুরি: emergency@legalaid.bd</p>
+                  <p className="text-gray-700">
+                    {t("contact.general")} info@legalaid.bd
+                  </p>
+                  <p className="text-gray-700">
+                    {t("contact.support")} support@legalaid.bd
+                  </p>
+                  <p className="text-gray-700">
+                    {t("contact.emergencyEmail")} emergency@legalaid.bd
+                  </p>
                 </div>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center mb-4">
                   <MapPin className="h-6 w-6 text-purple-600 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-900">ঠিকানা</h3>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {t("contact.address")}
+                  </h3>
                 </div>
                 <div className="space-y-2">
                   <p className="text-gray-700">
-                    <strong>ঢাকা অফিস:</strong><br />
-                    ১২৩, ধানমন্ডি রোড নং ২৭<br />
-                    ধানমন্ডি, ঢাকা-১২০৫
+                    <strong>{t("contact.dhakaOffice")}</strong>
+                    <br />
+                    {t("contact.dhakaAddress")
+                      .split("\n")
+                      .map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          <br />
+                        </span>
+                      ))}
                   </p>
                   <p className="text-gray-700">
-                    <strong>চট্টগ্রাম অফিস:</strong><br />
-                    ৪৫৬, নাসিরাবাদ<br />
-                    চট্টগ্রাম-৪০০০
+                    <strong>{t("contact.chittagongOffice")}</strong>
+                    <br />
+                    {t("contact.chittagongAddress")
+                      .split("\n")
+                      .map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          <br />
+                        </span>
+                      ))}
                   </p>
                 </div>
               </div>
@@ -153,12 +222,16 @@ const ContactPage = () => {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex items-center mb-4">
                   <Clock className="h-6 w-6 text-orange-600 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-900">সেবার সময়</h3>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {t("contact.serviceHours")}
+                  </h3>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-gray-700">জরুরি সেবা: ২৪/৭</p>
-                  <p className="text-gray-700">সাধারণ সেবা: সকাল ৯টা - রাত ৯টা</p>
-                  <p className="text-gray-700">সাপ্তাহিক ছুটি: শুক্রবার</p>
+                  <p className="text-gray-700">
+                    {t("contact.emergencyService")}
+                  </p>
+                  <p className="text-gray-700">{t("contact.generalService")}</p>
+                  <p className="text-gray-700">{t("contact.weeklyHoliday")}</p>
                 </div>
               </div>
             </div>
@@ -167,13 +240,15 @@ const ContactPage = () => {
           {/* Contact Form */}
           <div>
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">আমাদের লিখুন</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                {t("contact.writeToUs")}
+              </h2>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <User className="h-4 w-4 inline mr-2" />
-                    আপনার নাম *
+                    {t("contact.yourName")} *
                   </label>
                   <input
                     type="text"
@@ -182,14 +257,14 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                    placeholder="আপনার পূর্ণ নাম"
+                    placeholder={t("contact.namePlaceholder")}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <Mail className="h-4 w-4 inline mr-2" />
-                    ইমেইল ঠিকানা *
+                    {t("contact.emailAddress")} *
                   </label>
                   <input
                     type="email"
@@ -205,7 +280,7 @@ const ContactPage = () => {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <Phone className="h-4 w-4 inline mr-2" />
-                    মোবাইল নম্বর
+                    {t("contact.mobileNumber")}
                   </label>
                   <input
                     type="tel"
@@ -213,13 +288,13 @@ const ContactPage = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                    placeholder="০১৭১১-১২৩৪৫৬"
+                    placeholder={t("contact.phonePlaceholder")}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    জরুরি মাত্রা
+                    {t("contact.urgencyLevel")}
                   </label>
                   <select
                     name="urgency"
@@ -227,16 +302,22 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
                   >
-                    <option value="সাধারণ">সাধারণ</option>
-                    <option value="জরুরি">জরুরি</option>
-                    <option value="অতি জরুরি">অতি জরুরি</option>
+                    <option value="urgency.normal">
+                      {t("urgency.normal")}
+                    </option>
+                    <option value="urgency.urgent">
+                      {t("urgency.urgent")}
+                    </option>
+                    <option value="urgency.veryUrgent">
+                      {t("urgency.veryUrgent")}
+                    </option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <FileText className="h-4 w-4 inline mr-2" />
-                    বিষয় *
+                    {t("contact.subject")} *
                   </label>
                   <input
                     type="text"
@@ -245,14 +326,14 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                    placeholder="আপনার সমস্যার বিষয়"
+                    placeholder={t("contact.subjectPlaceholder")}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     <MessageCircle className="h-4 w-4 inline mr-2" />
-                    বিস্তারিত বার্তা *
+                    {t("contact.detailedMessage")} *
                   </label>
                   <textarea
                     name="message"
@@ -261,7 +342,7 @@ const ContactPage = () => {
                     required
                     rows={6}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                    placeholder="আপনার সমস্যার বিস্তারিত বর্ণনা দিন..."
+                    placeholder={t("contact.messagePlaceholder")}
                   />
                 </div>
 
@@ -270,22 +351,24 @@ const ContactPage = () => {
                   className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
                 >
                   <Send className="h-5 w-5 mr-2" />
-                  বার্তা পাঠান
+                  {t("contact.sendMessage")}
                 </button>
               </form>
             </div>
 
             {/* Quick Contact */}
             <div className="mt-8 bg-blue-50 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">দ্রুত যোগাযোগ</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                {t("contact.quickContact")}
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button className="bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center">
                   <MessageCircle className="h-4 w-4 mr-2" />
-                  লাইভ চ্যাট
+                  {t("contact.liveChat")}
                 </button>
                 <button className="bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  কল করুন
+                  {t("contact.callUs")}
                 </button>
               </div>
             </div>
